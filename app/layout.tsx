@@ -1,7 +1,7 @@
-import type React from "react"
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import type React from "react"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     generator: 'v0.app'
 }
 
+import { ReduxProvider } from "@/lib/redux/provider"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`font-sans antialiased`}>
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
         <Analytics />
       </body>
     </html>

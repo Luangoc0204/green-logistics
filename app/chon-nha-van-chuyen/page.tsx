@@ -316,7 +316,7 @@ export default function ChooseCarrierPage() {
           })}
         </div>
 
-        <div className="flex items-center justify-between max-w-lg mx-auto">
+        <div className="flex items-center justify-between w-full mx-auto">
           <button
             className="flex items-center gap-3 px-8 py-4 rounded-2xl border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 transition-all group"
             onClick={() => router.back()}
