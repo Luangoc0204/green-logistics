@@ -1,25 +1,20 @@
 "use client"
 
 import Header from "@/components/header"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import {
-    ArrowRight,
-    Bell,
-    Calendar,
-    LayoutDashboard,
-    Leaf,
-    LogOut,
-    Navigation,
-    ScrollText,
-    Search,
-    Settings,
-    TrendingUp,
-    Truck,
-    User,
-    Wallet,
-    Zap
+  ArrowRight,
+  Calendar,
+  LayoutDashboard,
+  Leaf,
+  Navigation,
+  ScrollText,
+  TrendingUp,
+  Truck,
+  User,
+  Wallet,
+  Zap
 } from "lucide-react"
 import { useState } from "react"
 
@@ -81,16 +76,16 @@ export default function DashboardPage() {
     <div className="flex bg-[#F8FAFC] min-h-screen">
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col ">
+      <main className="flex-1 flex flex-col w-full">
         <Header />
 
         {/* Dashboard Content */}
-        <div className="flex-1 overflow-y-auto p-10 space-y-10 custom-scrollbar max-w-7xl mx-auto">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10 space-y-6 sm:space-y-10 custom-scrollbar max-w-7xl mx-auto w-full">
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between mb-8">
+              <div key={stat.label} className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
                   <div className={`w-12 h-12 rounded-2xl ${stat.bgColor} flex items-center justify-center ${stat.color}`}>
                     <stat.icon className="w-6 h-6" />
                   </div>
@@ -100,20 +95,20 @@ export default function DashboardPage() {
                     </span>
                   )}
                 </div>
-                <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-2">{stat.label}</p>
+                <p className="text-[10px] sm:text-xs font-black text-gray-400 uppercase tracking-widest mb-2">{stat.label}</p>
                 <div className="flex items-baseline gap-2 leading-none">
-                  <span className="text-4xl font-black text-gray-900">{stat.value}</span>
-                  {stat.unit && <span className="text-lg font-black text-gray-400">{stat.unit}</span>}
+                  <span className="text-3xl sm:text-4xl font-black text-gray-900">{stat.value}</span>
+                  {stat.unit && <span className="text-base sm:text-lg font-black text-gray-400">{stat.unit}</span>}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
             {/* Live Fleet Tracking */}
-            <div className="xl:col-span-2 bg-white rounded-[3rem] p-10 border border-gray-100 shadow-sm">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xl font-black text-gray-900 tracking-tight">Live Fleet Tracking</h3>
+            <div className="xl:col-span-2 bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 border border-gray-100 shadow-sm">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 tracking-tight">Live Fleet Tracking</h3>
                 <Button variant="ghost" className="text-emerald-600 font-black gap-2 hover:bg-emerald-50 rounded-xl">
                   View Full Map
                   <ArrowRight className="w-4 h-4" />
@@ -154,9 +149,9 @@ export default function DashboardPage() {
             </div>
 
             {/* CO2 Chart */}
-            <div className="bg-white rounded-[3rem] p-10 border border-gray-100 shadow-sm flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest leading-none">Xu hướng giảm thải CO₂</h3>
+            <div className="bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 border border-gray-100 shadow-sm flex flex-col">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
+                <h3 className="text-[10px] sm:text-xs font-black text-gray-400 uppercase tracking-widest leading-none">Xu hướng giảm thải CO₂</h3>
                 <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-black">
                    <TrendingUp className="w-3 h-3" />
                    +15%
@@ -208,9 +203,9 @@ export default function DashboardPage() {
           </div>
 
           {/* Recent Activity */}
-          <div className="bg-white rounded-[3rem] p-10 border border-gray-100 shadow-sm overflow-hidden">
-            <div className="flex items-center justify-between mb-10">
-              <h3 className="text-xl font-black text-gray-900 tracking-tight">Recent Activity</h3>
+          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 border border-gray-100 shadow-sm overflow-hidden">
+            <div className="flex items-center justify-between mb-6 sm:mb-10">
+              <h3 className="text-lg sm:text-xl font-black text-gray-900 tracking-tight">Recent Activity</h3>
               <Button variant="ghost" className="text-emerald-600 font-black gap-2 hover:bg-emerald-50 rounded-xl">
                 View All
                 <ArrowRight className="w-4 h-4" />
@@ -230,25 +225,25 @@ export default function DashboardPage() {
                 <tbody className="divide-y divide-gray-50">
                   {activities.map((activity) => (
                     <tr key={activity.id} className="group hover:bg-gray-50/50 transition-colors">
-                      <td className="py-8 font-black text-emerald-600 text-sm pl-4">{activity.id}</td>
-                      <td className="py-8">
+                      <td className="py-4 sm:py-8 font-black text-emerald-600 text-[13px] sm:text-sm pl-4 whitespace-nowrap">{activity.id}</td>
+                      <td className="py-4 sm:py-8">
                         <div className="flex items-center gap-3">
-                          <Avatar className="h-10 w-10 border border-gray-100 shadow-sm transition-transform group-hover:scale-110">
-                            <AvatarFallback className="bg-emerald-50 text-emerald-700 font-bold">{activity.avatar}</AvatarFallback>
+                          <Avatar className="h-8 w-8 sm:h-10 sm:w-10 border border-gray-100 shadow-sm transition-transform group-hover:scale-110">
+                            <AvatarFallback className="bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-base">{activity.avatar}</AvatarFallback>
                           </Avatar>
-                          <p className="text-sm font-black text-gray-900">{activity.customer}</p>
+                          <p className="text-[13px] sm:text-sm font-black text-gray-900 whitespace-nowrap">{activity.customer}</p>
                         </div>
                       </td>
-                      <td className="py-8">
-                         <p className="text-sm font-black text-emerald-600 bg-emerald-50/50 px-3 py-1 rounded-lg inline-block">{activity.vehicle}</p>
+                      <td className="py-4 sm:py-8">
+                         <p className="text-[13px] sm:text-sm font-black text-emerald-600 bg-emerald-50/50 px-3 py-1 rounded-lg inline-block whitespace-nowrap">{activity.vehicle}</p>
                       </td>
-                      <td className="py-8">
-                        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black ${activity.statusColor} shadow-sm`}>
+                      <td className="py-4 sm:py-8">
+                        <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black ${activity.statusColor} shadow-sm whitespace-nowrap`}>
                           <div className={`w-1.5 h-1.5 rounded-full bg-current`}></div>
                           {activity.status}
                         </div>
                       </td>
-                      <td className="py-8 text-right font-black text-gray-500 text-sm pr-4">{activity.eta}</td>
+                      <td className="py-4 sm:py-8 text-right font-black text-gray-500 text-[13px] sm:text-sm pr-4 whitespace-nowrap">{activity.eta}</td>
                     </tr>
                   ))}
                 </tbody>
